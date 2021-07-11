@@ -114,7 +114,7 @@ class Inbox extends CI_Controller {
 					echo "<script> alert('Maaf, File Gagal Di Upload.') </script>"; die(redirect('inbox','refresh'));
 			}
 			else{
-				$data = array('upload_data' => $this->upload->data());
+				$upload = array('upload_data' => $this->upload->data());
 				echo "success";
 			}	
 
@@ -124,7 +124,7 @@ class Inbox extends CI_Controller {
 				'pengirim' => $pengirim,
 				'tujuan' => $tujuan,
 				'perihal' => $perihal,
-				'berkas' => $new_name,
+				'berkas' => $upload["upload_data"]['file_name'],
 				'disposisi' => $disposisi,
 				'isi_disposisi' => $isi,
 				'is_approved' => $is_approved
@@ -134,7 +134,7 @@ class Inbox extends CI_Controller {
 				'judul' => $perihal,
 				'nomor' => $nomor,
 				'tgl'	  => $tanggal,
-				'file_name' => $new_name,
+				'file_name' => $upload["upload_data"]['file_name'],
 				'file_path' => $config['upload_path'],
 				'jenis_surat' => 1,
 				'uploader' => $pengirim,
