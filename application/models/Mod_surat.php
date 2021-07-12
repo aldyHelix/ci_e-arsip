@@ -31,8 +31,8 @@ class Mod_surat extends CI_Model {
 	public function read_inbox_murid($username){
 		$inbox = $this->db->order_by('id', 'DESC');
 		$inbox = $this->db->where_in('tujuan', [$username, 'Murid']);
-		$inbox = $this->db->or_where('pengirim', $username);
-		//$inbox = $this->db->where('is_approved', 1);
+		//$inbox = $this->db->or_where('pengirim', $username);
+		$inbox = $this->db->where('is_approved', 1);
 		$inbox = $this->db->get('surat_masuk');
 		return $inbox->result();
 	}
@@ -101,7 +101,7 @@ class Mod_surat extends CI_Model {
 	public function read_send_murid($username){
 		$send = $this->db->order_by('id', 'DESC');
 		$send = $this->db->where_in('tertuju', ['Murid', $username]);
-		$send = $this->db->where('is_approved', 1);
+		//$send = $this->db->where('is_approved', 1);
 		$send = $this->db->get('surat_keluar');
 		return $send->result();
 	}
@@ -117,6 +117,7 @@ class Mod_surat extends CI_Model {
 	public function read_send_guru($username){
 		$send = $this->db->order_by('id', 'DESC');
 		$send = $this->db->where_in('tertuju', ['Guru', $username]);
+		$inbox = $this->db->or_where('pengirim', $username);
 		//$send = $this->db->where('is_approved', 1);
 		$send = $this->db->get('surat_keluar');
 		return $send->result();
