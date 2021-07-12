@@ -63,9 +63,13 @@
 										</td>
 										<?php } ?>
 										<td width="20%" align="center">
-											<a href="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" title="Download" class="btn btn-sm btn-warning"><i class="fas fa-cloud-download-alt "></i></a>
+											<?php if($this->session->userdata('level') == "Komite" OR $this->session->userdata('level') == "Murid") { ?>
+												<a href="<?php echo base_url('./media/suratmasuk/'. $row->berkas) ?>" title="Download" class="btn btn-sm btn-warning"><i class="fas fa-cloud-download-alt "></i></a>
+											<?php } else { ?>
+												<a href="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" title="Download" class="btn btn-sm btn-warning"><i class="fas fa-cloud-download-alt "></i></a>
+											<?php } ?>
 											<a title="show" href="#pdfModal<?php $key?>" data-toggle="modal" class="btn btn-sm btn-warning"><i class="fas fa-file-alt "></i></a>
-											<?php if($this->session->userdata('level') != "Komite" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"){ ?>
+											<?php if($this->session->userdata('level') == "Admin"){ ?>
 												<a href="<?php echo base_url('Send/detail/'. $row->id) ?>" title="Update">
 													<button class="btn btn-flat btn-sm btn-primary"><i class="fas fa-eye"></i></button>
 												</a>
@@ -91,9 +95,15 @@
 													</button>
 												</div>
 												<div class="modal-body" style="height: 450px;">
-													<embed type="application/pdf" src="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>"width="100%" height="100%"></embed>
-													<!-- <object data="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" width="100%"></object> -->
-													<!-- <iframe src="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" frameborder="no" width="100%"></iframe> -->
+													<?php if($this->session->userdata('level') == "Komite" OR $this->session->userdata('level') == "Murid") { ?>
+														<embed type="application/pdf" src="<?php echo base_url('./media/suratmasuk/'. $row->berkas) ?>"width="100%" height="100%"></embed>
+														<!-- <object data="<?php echo base_url('./media/suratmasuk/'. $row->berkas) ?>" width="100%"></object> -->
+														<!-- <iframe src="<?php echo base_url('./media/suratmasuk/'. $row->berkas) ?>" frameborder="no" width="100%"></iframe> -->
+													<?php } else { ?>
+														<embed type="application/pdf" src="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>"width="100%" height="100%"></embed>
+														<!-- <object data="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" width="100%"></object> -->
+														<!-- <iframe src="<?php echo base_url('./media/suratkeluar/'. $row->berkas) ?>" frameborder="no" width="100%"></iframe> -->
+													<?php } ?>
 												</div>
 											</div>
 										</div>

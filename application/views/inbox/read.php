@@ -63,7 +63,7 @@
 										<td width="20%" align="center">
 											<a href="<?php echo base_url('./media/suratmasuk/'. $row->berkas) ?>" title="Download" class="btn btn-sm btn-warning"><i class="fas fa-cloud-download-alt "></i></a>
 											<a title="show" href="#pdfModal<?php $key?>" data-toggle="modal" class="btn btn-sm btn-warning"><i class="fas fa-file-alt "></i></a>
-											<?php if($this->session->userdata('level') != "Murid" AND $this->session->userdata('level') != "Komite" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"){ ?>
+											<?php if($this->session->userdata('level') != "Murid" OR $this->session->userdata('level') != "Komite" OR $this->session->userdata('level') != "Alumni" OR $this->session->userdata('level') != "Wali Murid"){ ?>
 											<a href="<?php echo base_url('Inbox/detail/'. $row->id) ?>" title="Update">
 												<button class="btn btn-flat btn-sm btn-primary"><i class="fas fa-eye"></i></button>
 											</a>
@@ -73,7 +73,7 @@
 											</a>
 
 											<a href="<?php echo base_url('Inbox/delete/'. $row->id) ?>">
-												<button onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini ?')" class="btn btn-flat btn-sm btn-danger" title="Delete"><i class="fa fa-user-times"></i></button>
+												<button onclick="return confirm('Apakah ORa Yakin Akan Menghapus Data Ini ?')" class="btn btn-flat btn-sm btn-danger" title="Delete"><i class="fa fa-user-times"></i></button>
 											</a>
  											<?php } ?>
 										</td>
@@ -149,7 +149,7 @@
 				<?php } else { ?>
 					<select name="tujuan" id="tujuan" class="form-control" required>
 						<option value="">-- Belum Ditentukan --</option>
-						<?php if($this->session->userdata('level') != "Murid" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"){ ?>
+						<?php if($this->session->userdata('level') == "Admin"){ ?>
 							<option value="Alumni">Semua Alumni</option>
 							<option value="Wali Murid">Semua Wali Murid</option>
 							<option value="Murid">Semua Murid</option>
