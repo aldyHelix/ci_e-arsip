@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-solid">
-					<div class="box-header bg-yellow"><i class="fas fa-envelope"></i>					
+					<div class="box-header bg-yellow"><i class="fas fa-envelope"></i>
 					<?php if($this->session->userdata('level') != "Murid" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"  AND $this->session->userdata('level') != "Komite" ){ ?>
 					 Arsip Surat Masuk
 					<?php } else {?>
@@ -46,11 +46,11 @@
 										<?php if($this->session->userdata('level') != "Komite") { ?>
 										<td><?php echo $row->tujuan ?></td>
 										<?php } else { ?>
-										<td><?php echo $row->tertuju ?></td>	
+										<td><?php echo $row->tertuju ?></td>
 										<?php } ?>
 										<td><span class="text-success"><i class="fas fa-check-circle"></i></span> <?php echo $row->disposisi ?></td>
 										<td>
-											<?php 
+											<?php
 												if($row->is_approved == 1){
 													echo '<span class="text-success"><i class="fas fa-check-square"></i></span> Diterima';
 												}elseif($row->is_approved == 0){

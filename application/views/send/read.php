@@ -2,14 +2,14 @@
 	<div class="content-header">
 	<?php if($this->session->userdata('level') != "Murid" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"){ ?>
 		<a href="#exampleModal" data-toggle="modal" class="btn btn-flat btn-primary btn-sm"><i class="fas fa-plus-square"></i> Tambah</a>
-	<?php } ?>	
+	<?php } ?>
 		<a href="<?php echo base_url('Excel_send') ?>" class="btn btn-flat btn-success btn-sm"><i class="fas fa-file-excel "></i> Simpan Ke Excel</a>
 	</div>
 
 
 	<!-- Isi Kontent -->
 	<section class="content container-fluid">
-		
+
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-solid">
@@ -18,7 +18,7 @@
 					 Arsip Surat Keluar
 					<?php } else {?>
 						Kotak Masuk
-					<?php } ?> 
+					<?php } ?>
 					</div>
 					<div class="box-body table-responsive">
 						<table class="table table-bordered table-striped data">
@@ -46,7 +46,7 @@
 										<?php if($this->session->userdata('level') == "Komite" OR $this->session->userdata('level') == "Murid") { ?>
 										<td><?php echo $row->tujuan ?></td>
 										<?php } else { ?>
-										<td><?php echo $row->tertuju ?></td>	
+										<td><?php echo $row->tertuju ?></td>
 										<?php } ?>
 										<td><span class="text-success"><i class="fas fa-check-circle"></i></span> <?php echo $row->disposisi ?></td>
 										<?php if($this->session->userdata('level') != "Murid" AND $this->session->userdata('level') != "Alumni" AND $this->session->userdata('level') != "Wali Murid"){ ?>
@@ -77,7 +77,7 @@
 												<a href="<?php echo base_url('Send/delete/'. $row->id) ?>">
 													<button onclick="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini ?')" class="btn btn-flat btn-sm btn-danger" title="Delete"><i class="fa fa-user-times"></i></button>
 												</a>
-											<?php } ?>                                       
+											<?php } ?>
 										</td>
 									</tr>
 									<!-- Modal view Pdf -->
