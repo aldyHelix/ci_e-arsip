@@ -11,7 +11,10 @@
 		<!-- Sidebar Menu -->
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">MENU NAVIGATION</li>
+			<?php
+			if ($this->session->userdata('level') !== "Murid") {?>
 			<li><a href="#modal-surat" data-toggle="modal"><i class="fas fa-plus-square"></i> <span> Tulis Surat</span></a></li>
+			<?php }?>
 			<?php
 			if($this->session->userdata('level') == "Murid" or $this->session->userdata('level') == "Alumni"  or $this->session->userdata('level') == "Wali Murid" or $this->session->userdata('level') == "Komite"){
 			?>
@@ -23,6 +26,10 @@
 			<li><a href="<?php echo base_url('Inbox') ?>"><i class="fas fa-envelope "></i> <span>Kotak Keluar</span></a></li>
 			<li><a href="<?php echo base_url('Acount') ?>"><i class="fas fa-users "></i> <span>My Profil</span></a></li>
 			<?php } ?>
+			<?php
+			if ($this ->session ->userdata('level') == "Murid"){?>
+			<li><a href="<?php echo base_url('Acount') ?>"><i class="fas fa-users "></i> <span>My Profil</span></a></li>
+		<?php }?>
 			<?php
 			if($this->session->userdata('level') == "Admin"){
 			?>

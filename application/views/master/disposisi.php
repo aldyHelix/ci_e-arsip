@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box">
-					<div class="box-header bg-yellow">Dmaster Disposisi</div>
+					<div class="box-header bg-yellow">Master Disposisi</div>
 					<div class="box-body table-responsive">
 						<table class="table table-bordered table-striped data">
 							<thead>

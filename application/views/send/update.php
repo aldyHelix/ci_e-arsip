@@ -2,7 +2,7 @@
 
 	<!-- Isi Kontent -->
 	<section class="content container-fluid">
-		
+
 		<div class="row">
             <div class="col-md-12">
                 <form action="<?php echo base_url('Send/update_send') ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -45,7 +45,7 @@
                                     <input type="text" class="form-control" name="perihal" id="perihal" value="<?php echo $views['perihal'] ?>" autocomplete="off" required>
                                 </div>
                             </div>
-                            <?php if($this->session->userdata('level') == "Admin"){ ?>
+              <?php if($this->session->userdata('level') == "Admin"){ ?>
 				        	<div class="form-group">
 				        		<label for="disposisi" class="control-label col-md-3 text-right">Disposisi :</label>
 				        		<div class="col-md-8">
@@ -71,7 +71,7 @@
                                     <input type="text" class="form-control" name="berkas" id="berkas" value="<?php echo $views['berkas'] ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
-                            <?php if($this->session->userdata('level') == "Admin"){ ?>
+            <?php if($this->session->userdata('level') == "Admin"){ ?>
 								<div>
 									<div class="form-group">
 										<label for="is_approved" class="control-label col-md-3 text-right">Status Surat :</label>
@@ -95,10 +95,9 @@
                         </div>
                     </div>
                 </form>
-            </div>      
+            </div>
         </div>
 
 	</section>
 	<!-- Akhir isi Kontent -->
 </div>
-
